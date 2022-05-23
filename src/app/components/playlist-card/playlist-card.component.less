@@ -1,0 +1,64 @@
+@import '../../../assets/styles/colors.less';
+
+.playlist, .playlist-dark {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    .card {
+        margin-top: 20px;
+        margin-right: 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        @media screen and ( max-width: 1499px ) {
+            margin-right: 10px;
+        }
+        &:hover {
+            transform: scale(1.1);
+        }
+        &__bg {
+            width: 150px;
+            height: 150px;
+            background-position: center;
+            background-size: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            @media screen and ( max-width: 1419px ) {
+                width: 125px;
+                height: 125px;
+            }
+        }
+        &__descr {
+            width: 120px;
+            @media screen and ( max-width: 1499px ) {
+                width: 100px;
+            }
+            &-uptitle {
+                display: flex;
+                font-size: 15px;
+                color: @black;
+                .year {
+                    margin-right: 15px;
+                }
+            }
+            &-title {
+                font-size: 20px;
+            }
+            &-subtitle {
+                font-size: 15px;
+                color: @black;
+            }
+        }
+    }
+}
+
+.playlist-dark {
+    * {
+        color: @white;
+    }
+}

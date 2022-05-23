@@ -1,0 +1,40 @@
+@import '../../../assets/styles/colors.less';
+
+.home__routes, .home__routes-dark {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  @media (max-width: 1040px) {
+    justify-content: center;
+  }
+  @media screen and ( max-width: 450px ) {
+    justify-content: center;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    color: @inactive-header;
+    margin-right: 55px;
+    &:hover {
+      cursor: pointer;
+    }
+    @media screen and ( max-width: 450px ) {
+      margin-right: 15px;
+      font-size: 27px;
+    }
+  }
+  .active {
+    color: @black;
+    font-weight: 600;
+  }
+}
+
+.home__routes-dark {
+  .active {
+    color: @white;
+    font-weight: 600;
+  }
+}

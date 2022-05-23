@@ -1,0 +1,52 @@
+@import '../../../assets/styles/colors.less';
+
+:host {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+
+
+  .user-menu__profile-name, .user-menu__profile-name-dark {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: @black;
+    margin: 0;
+    @media screen and ( max-width: 445px ) {
+      display: none;
+    }
+  }
+
+  .user-menu__profile-name-dark {
+    color: @white;
+  }
+
+  .user-menu__profile-image {
+    width: 45px;
+    height: 45px;
+    border-radius: 21px;
+    cursor: pointer;
+  }
+
+  .user-menu__profile-null-image, .user-menu__profile-null-image-dark {
+    font-size: 34px;
+    cursor: pointer;
+    min-width: 45px;
+    height: 45px;
+    background-color: #C4C4C4;
+    border-radius: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and ( max-width: 850px ) {
+      font-size: 24px;
+    }
+    @media screen and ( max-width: 345px ) {
+      margin-right: 3px;
+    }
+  }
+
+  .user-menu__profile-null-image-dark {
+    background-color: @white;
+  }
+}

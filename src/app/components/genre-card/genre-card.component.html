@@ -1,0 +1,6 @@
+<div class="card-container">
+    <div class="card" [routerLink]="['/home/genres-collection', genre.id]" [ngStyle]="
+        {'background-image' : 'url(' + genre.icons[0].url + ')'}">
+            <a class="card__name">{{genre.name}}</a>
+    </div>
+</div>

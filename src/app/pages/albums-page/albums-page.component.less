@@ -1,0 +1,272 @@
+@import '../../../assets/styles/colors.less';
+
+:host {
+  font-family: 'Roboto', sans-serif;
+  width: 1546px;
+
+  @media screen and (min-width: 1280px) and (max-width: 1545px) {
+    width: 1280px;
+  }
+
+  @media screen and (min-width: 920px) and (max-width: 1279.99px) {
+    width: 920px;
+  }
+
+  .albums-wrapper, .albums-wrapper-dark {
+    margin: 50px 140px 0 0;
+    padding-bottom: 100px;
+    @media screen and ( max-width: 919px ) {
+      margin: 50px 0 0 0;
+    }
+
+    .albums {
+      display: grid;
+      gap: 60px;
+      grid-template-columns: 764px 3px 680px;
+      grid-template-rows: auto auto auto;
+
+      @media screen and (min-width: 1545px) and (max-width: 1730px) {
+        grid-template-columns: 610px 3px 600px;
+      }
+
+      @media screen and (min-width: 1400px) and (max-width: 1544px) {
+        grid-template-columns: 465px 3px 450px;
+      }
+
+      @media screen and (min-width: 1250px) and ( max-width: 1399px ) {
+        grid-template-columns: 413px 3px 440px;
+      }
+
+      @media screen and (min-width: 1150px) and ( max-width: 1249px ) {
+        grid-template-columns: 323px 3px 440px;
+      }
+
+      @media screen and (min-width: 920px) and ( max-width: 1149px ) {
+        grid-template-columns: 220px 1px 417px;
+        gap: 8px;
+      }
+
+      @media screen and ( max-width: 919px ) {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .albums-list {
+        .active {
+          background-color: @album-playlist-background;
+        }
+
+        .album {
+          cursor: pointer;
+          padding: 23px 0 23px 14px;
+          display: flex;
+          margin-bottom: 50px;
+          border-radius: 5px;
+
+          &:hover{
+            background-color: @album-playlist-background;
+          }
+
+          @media screen and (max-width: 1149px) {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          @media screen and ( max-width: 420px ) {
+            margin-bottom: 0;
+          }
+
+          .album__image {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+            background-position: center;
+            background-size: cover;
+            @media screen and ( max-width: 919px ) {
+              width: 250px;
+              height: 250px;
+            }
+          }
+
+          .album-info {
+            margin-left: 30px;
+            @media screen and (max-width: 1149px) {
+              margin-left: 0;
+              margin-top: 10px;
+            }
+            @media screen and ( max-width: 919px ) {
+              text-align: center;
+            }
+
+            .album__name {
+              margin: 0;
+              width: 250px;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              font-size: 24px;
+
+              @media screen and ( max-width: 1400px) {
+                width: 200px;
+              }
+
+              @media screen and (min-width: 920px) and (max-width: 1279.99px) {
+                width: 120px;
+                font-size: 17px;
+              }
+
+              @media screen and (max-width: 920px) {
+                width: 150px;
+              }
+            }
+
+            .album__artists {
+              font-size: 14px;
+              font-weight: 100;
+            }
+
+            .album__delete {
+              margin-top: 10px;
+              @media screen and (min-width: 920px) and (max-width: 1279.99px) {
+                font-size: 14px;
+              }
+
+              &:hover {
+                cursor: pointer;
+                color: @active-link;
+              }
+            }
+          }
+        }
+      }
+
+      .albums-hr {
+        border: 1px solid @black;
+        height: 100%;
+        align-self: center;
+        justify-self: center;
+        @media screen and ( max-width: 919px ) {
+          width: 99%;
+        }
+      }
+
+      .selected-album {
+        padding-top: 23px;
+
+        .selected-album__album {
+          display: flex;
+          margin-bottom: 30px;
+          @media screen and ( max-width: 420px ) {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .selected-album__album-photo {
+
+            .selected-album__img {
+              width: 150px;
+              height: 150px;
+              border-radius: 5px;
+              background-position: center;
+              background-size: cover;
+            }
+
+            .selected-album__vinyl {
+              z-index: -1;
+              width: 185px;
+              height: 128px;
+              position: absolute;
+              transform: translate(30px, 12px);
+            }
+
+          }
+
+          .selected-album__album-info {
+            margin-left: 104px;
+            @media screen and ( max-width: 420px ) {
+              display: flex;
+              flex-direction: column;
+              flex-wrap: wrap;
+              align-items: center;
+              margin-left: 0;
+            }
+
+
+            .selected-album__name {
+              margin: 0;
+              width: 350px;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              font-size: 24px;
+
+              @media screen and (max-width: 920px) {
+                width: 150px;
+              }
+            }
+
+            .selected-album__artists{
+              display: flex;
+              flex-direction: column;
+
+              .selected-album__artist{
+                font-size: 14px;
+                font-weight: 100;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+
+      .albums-waiting {
+        display: flex;
+        position: fixed;
+        top: 27%;
+        right: 0;
+        margin-right: 150px;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        @media screen and ( max-width: 919px ) {
+          position: relative;
+          margin-right: 0;
+        }
+
+        .albums-waiting__img {
+          width: 450px;
+
+          @media screen and (min-width: 920px) and (max-width: 1279.99px) {
+            width: 320px
+          }
+
+          @media screen and ( max-width: 420px ) {
+            width: 300px;
+          }
+        }
+
+        .albums-waiting__text {
+          margin-top: 35px;
+          font-size: 24px;
+
+          @media screen and (min-width:920px) and (max-width: 1279.99px) {
+            font-size: 16px;
+          }
+
+          @media screen and (max-width: 920px) {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .albums-wrapper-dark {
+    * {
+      color: @white
+    }
+    .albums {
+      .albums-hr {
+        border: 1px solid @white;
+      }
+    }
+  }
+}

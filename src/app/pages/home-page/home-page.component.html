@@ -1,0 +1,5 @@
+<div [ngClass]="{ 'home__routes' : !this.themeStateService.getIsDarkTheme() , 'home__routes-dark' : this.themeStateService.getIsDarkTheme()  }">
+  <h1 [routerLinkActive]="['active']" routerLink="/home/recommendations">Рекомендации </h1>
+  <h1 [routerLinkActive]="['active']" routerLink="/home/genres-collection">Жанры</h1>
+</div>
+<router-outlet></router-outlet>

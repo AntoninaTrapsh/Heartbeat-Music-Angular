@@ -1,0 +1,55 @@
+<div [ngClass]="{ 'track' : !this.themeStateService.getIsDarkTheme() , 'track-dark' : this.themeStateService.getIsDarkTheme()  }" [ngStyle]="{'min-width': isCard ? '60px' : '270px'}">
+  <div class="track-contain">
+    <div [ngStyle]="{'background-image': 'url(' + (_track?.preview_url ? _track?.album!.images[0].url : '../../../assets/image/default-artist-image.png') + ')',
+                      'margin': isCard ? '10px 8px' : '10px 10px'}"
+         class="track-contain__img"
+         (click)="_track?.preview_url ? controlPlayerCurrentTrack() : notificationCall()">
+      <img src="{{isPlay ? 'assets/svg/pause-track.svg' : 'assets/svg/play-track.svg'}}" alt="album">
+    </div>
+    <div class="track-contain-info" *ngIf="!isCard">
+      <div class="track-contain-info__artist">
+        <p
+          *ngIf="artistNameList" nz-tooltip="" [nzTooltipMouseEnterDelay]="0.7"
+          nzTooltipTitle="{{artistNameList}}" nzTooltipPlacement="topLeft">
+          {{artistNameList}}
+        </p>
+      </div>
+      <div class="track-contain-info__name" nz-tooltip="" [nzTooltipMouseEnterDelay]="0.7"
+      nzTooltipTitle="{{_track.name}}" nzTooltipPlacement="topLeft">
+        {{_track.name}}</div>
+    </div>
+  </div>
+  <div *ngIf="!isCard" class="track-time">{{trackTime | timeFormat}}</div>
+  <div>
+    <button nz-dropdown [nzDropdownMenu]="menu"
+            (click)="getUserPlaylists(_track!.id)"
+            *ngIf="!isCard"
+            nzTrigger="click"
+            nzPlacement="topCenter"
+            class="track__add">
+    </button>
+    <button *ngIf="isUserPlaylist" (click)="deleteTrackFromPlaylist()" class="track__playlist-delete"></button>
+  </div>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item *ngIf="!isFavorite"
+          (click)="addTrackIntoFavoriteList(_track!.id)">
+        Добавить в избранное
+      </li>
+      <li nz-menu-item
+          *ngIf="isFavorite"
+          (click)="removeTrackFromFavoriteList(_track!.id)">
+        Убрать из избранного
+      </li>
+      <li nz-submenu nzTitle="Добавить в плейлист">
+        <ul>
+          <li nz-menu-item
+              *ngFor="let playlist of userPlaylists"
+              (click)="addTrackIntoPlaylist(playlist.id, _track!.id)">
+            {{playlist.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>
